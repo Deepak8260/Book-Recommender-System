@@ -83,9 +83,6 @@
         margin-top: 20px;
         margin-bottom: 20px;
       }
-      .info:hover {
-        background-color: #3e2213;
-      }
 
       .card {
         position: relative;
@@ -105,7 +102,7 @@
         position: absolute;
         bottom: -20px;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translateX(-50%) translateY(0);
         background-color: #a1662fe0;
         color: white;
         padding: 10px 20px;
@@ -113,6 +110,13 @@
         text-align: center;
         width: 90%;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .info:hover {
+        transform: translateX(-50%) translateY(-15px);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+        background-color: #3e2213;
       }
 
       .rating-icon {
@@ -179,9 +183,9 @@
         <div class="card">
           <img src="{{ image[i] }}" alt="Book Cover" />
           <div class="info">
-            <p>{{ book_name[i] }}</p>
-            <p>Author: {{ author[i] }}</p>
-            <p>Votes: {{ votes[i] }}</p>
+            <p class="text-highlight">{{ book_name[i] }}</p>
+            <p class="text-highlight">Author: {{ author[i] }}</p>
+            <p class="text-highlight">Votes: {{ votes[i] }}</p>
           </div>
           <div class="rating-icon" data-rating="{{ rating[i] | int }}">⭐</div>
         </div>
